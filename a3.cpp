@@ -2,6 +2,13 @@
 #include "a3.h"
 using namespace std;
 // TODO function to print a vector
+void printIntArray(int a[], int n)
+{
+	for (int i = 0; i < n; i++)
+		cout << a[i] << " ";
+	cout << endl;
+}
+
 
 void testQ1()
 {
@@ -25,19 +32,33 @@ void testQ3()
 	int q3_worse;
 	vector<int> v3_worse = removeDuplicates(a3_worse, s3, q3_worse);
 	cout << "Q3_Worse(n=5): " << to_string(q3_worse) << endl;
-	// Check resulting vector
+	cout << "Resulting vector: " << endl;
+	vector<int>::iterator it;
+	for(it = v3_worse.begin(); it != v3_worse.end(); it++)
+		cout<< *it << " ";
+	cout << endl;
 
 	int a3_best[5] = {1, 1, 1, 1, 1};
 	int q3_best;
 	vector<int> v3_best = removeDuplicates(a3_best, s3, q3_best);
 	cout << "Q3_Best(n=5): " << to_string(q3_best) << endl;
-	// Check resulting vector
+	cout << "Resulting vector: " << endl;
+	for(it = v3_best.begin(); it != v3_best.end(); it++)
+		cout<< *it << " ";
+	cout << endl;
 }
 
 void testQ4()
 {
 	int a4[9] = {1,2,3,0,1,0,1,0,1};
 	int r4 = 3;
+	int q4_cnt;
+	int *out = matrixSelfMultiply(a4, r4, q4_cnt);
+	cout << "Q4 Input: ";
+	printIntArray(a4, 9);
+	cout << "Q4 Output: ";
+	printIntArray(out, 9);
+	cout << "Q4 Op Cnt: " << to_string(q4_cnt) << endl;
 }
 
 void testQ5()
@@ -52,7 +73,10 @@ void testQ6()
 
 int main()
 {
-
+	testQ1();
+	testQ2();
+	testQ3();
+	testQ4();
 
 
 

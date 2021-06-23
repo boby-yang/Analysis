@@ -4,132 +4,82 @@ using namespace std;
 
 int cartesianProduct(int arr[], int n)
 {
-	int cnt_op = 0; // ignored
+	int cnt_op = 0;
 	int i = 0;
-	cnt_op++; // line 7
-	while ((cnt_op++, i < n)) { // line 9
+	cnt_op ++;
+	while ((cnt_op++, i < n)) {
 		int j = 0;
-		cnt_op++; // line 10
-		while ((cnt_op++, j < n)) { // line 12
+		cnt_op++;
+		while ((cnt_op++, j < n)) {
 			cout << "{" << arr[i] << "," << arr[j] << "}";
-			cnt_op++; // line 13
 			j++;
-			cnt_op++; // line 15
 			cout << " ";
-			cnt_op++; // line 17
+			cnt_op += 3;
 		}
 		cout << endl;
-		cnt_op++; // line 20
 		i++;
-		cnt_op++; // line 22
+		cnt_op += 2;
 	}
-	return cnt_op; // ignored
+	return cnt_op;
 }
 
 int triangle(int x)
 {
-	int cnt_op = 0; // ignored
+	int cnt_op = 0;
 	int i = 0;
-	cnt_op++; // line 31
-	while ((cnt_op++, i < x)) { // line 33
+	cnt_op++;
+	while ((cnt_op++, i < x)) {
 		int j = 0;
-		cnt_op++; // line 34
-		while ((cnt_op++, j <= i)) { // line 36
+		cnt_op++;
+		while ((cnt_op++, j <= i)) {
 			cout << j << " ";
-			cnt_op++; // line 37
 			j++;
-			cnt_op++; // line 39
+			cnt_op += 2;
 		}
-
 		cout << endl;
-		cnt_op++; // line 43
 		i++;
-		cnt_op++; // line 45
+		cnt_op += 2;
 	}
 
-	while ((cnt_op++, i > 0)) { // line 49
+	while ((cnt_op++, i > 0)) {
 		i--;
-		cnt_op++; // line 50
 		int j = 0;
-		cnt_op++; // line 52
-		while ((cnt_op++, j <= i)) { // line 54
+		cnt_op += 2;
+		while ((cnt_op++, j <= i)) {
 			cout << j << " ";
-			cnt_op++; // line 55
 			j++;
-			cnt_op++; // line 57
+			cnt_op += 2;
 		}
 		cout << endl;
-		cnt_op++; // line 60
+		cnt_op++;
 	}
-	return cnt_op; // ignored
+	return cnt_op;
 }
 
 vector<int> removeDuplicates(int arr[], int n, int &cnt_op)
 {
-	cnt_op = 0; // ignored
-
-	vector<int> result;
-	cnt_op++; // line 70
-	int i = 0;
-	cnt_op++; // line 72
-	while ((cnt_op++, i < n)) { // line 74
-		int iResult = 0;
-		cnt_op++; // line 75
-		bool duplicate = false;
-		cnt_op++; // line 77
-		while (cnt_op++, (iResult < (int)result.size() && !duplicate)) { // line 80
-			if ((cnt_op++,arr[i] == result[iResult])) { // line 81
-				duplicate = true;
-				cnt_op++; // line 82
-			}
-
-			iResult++;
-			cnt_op++; // line 86
-		}
-		if ((cnt_op++, !duplicate)) { // line 89
-			result.push_back(arr[i]); //note 4
-			cnt_op++; // line 90
-		}
-
-		i++;
-		cnt_op++; // line 94
-	}
-	return result;
-}
-
-int* matrixSelfMultiply(int* m, int rows, int &cnt_op)
-{
 	cnt_op = 0;
-	int columns = rows;
-	cnt_op++; // line 103
-	int* result = new int[rows * columns];
-	cnt_op++; // line 105
-	int r = 0;
-	cnt_op++; // line 107
-
-	while ((cnt_op++, r < rows)) { // line 110
-		int c = 0;
-		cnt_op++; // line 111
-		while ((cnt_op++, c < columns)) { //columns = rows  // line 113
-			int next = 0;
-			cnt_op++; // line 114
-			int iNext = 0;
-			cnt_op++; // line 116
-
-			while ((cnt_op++, iNext < rows)) { // line 119
-				next += m[rcIndex(r, iNext, columns)] * m[rcIndex(iNext, c, columns)];
-				cnt_op++; // line 120
-				iNext++;
-				cnt_op++; // line 122
+	vector<int> result;
+	int i = 0;
+	cnt_op += 2;
+	while ((cnt_op++, i < n)) {
+		int iResult = 0;
+		bool duplicate = false;
+		cnt_op += 2;
+		while (cnt_op++, (iResult < (int)result.size() && !duplicate)) {
+			if ((cnt_op++,arr[i] == result[iResult])) {
+				duplicate = true;
+				cnt_op++;
 			}
-
-			result[rcIndex(r, c, columns)] = next;
-			cnt_op++; // line 126
-			c++;
-			cnt_op++; // line 128
+			iResult++;
+			cnt_op++;
 		}
-		r++;
-		cnt_op++; // line 131
+		if ((cnt_op++, !duplicate)) {
+			result.push_back(arr[i]); //note 4
+			cnt_op++;
+		}
+		i++;
+		cnt_op++;
 	}
 	return result;
 }
@@ -138,3 +88,36 @@ int rcIndex(int r, int c, int columns)
 {
 	return r * columns + c;
 }
+
+int* matrixSelfMultiply(int* m, int rows, int &cnt_op)
+{
+	cnt_op = 0;
+	int columns = rows;
+	int* result = new int[rows * columns];
+	int r = 0;
+	cnt_op += 3;
+
+	while ((cnt_op++, r < rows)) {
+		int c = 0;
+		cnt_op++;
+		while ((cnt_op++, c < columns)) { //columns = rows
+			int next = 0;
+			int iNext = 0;
+			cnt_op += 2;
+
+			while ((cnt_op++, iNext < rows)) {
+				next += m[rcIndex(r, iNext, columns)] * m[rcIndex(iNext, c, columns)];
+				iNext++;
+				cnt_op += 2;
+			}
+
+			result[rcIndex(r, c, columns)] = next;
+			c++;
+			cnt_op += 2;
+		}
+		r++;
+		cnt_op++;
+	}
+	return result;
+}
+
