@@ -121,3 +121,47 @@ int* matrixSelfMultiply(int* m, int rows, int &cnt_op)
 	return result;
 }
 
+int ssort(int arr[], int n, int i)
+{
+	int cnt_op = 0;
+	if ((cnt_op++, i < n-1)) {
+		int next = i + 1;
+		int smallest = i;
+		cnt_op += 2;
+		while ((cnt_op++, next < n)) {
+			if ((cnt_op++, arr[next] < arr[smallest])) {
+				smallest = next;
+				cnt_op++;
+			}
+			next++;
+			cnt_op++;
+		}
+		int temp = arr[i];
+		arr[i] = arr[smallest];
+		arr[smallest] = temp;
+		cnt_op += 3;
+		cnt_op += ssort(arr, n, i + 1);
+	}
+	return cnt_op;
+}
+
+int pattern(int n, int i)
+{
+	int cnt_op = 0;
+	if ((cnt_op++, n > 0)) {
+		cnt_op += pattern(n/2, i);
+		cout << string(i, ' ');
+		int ast = 0;
+		cnt_op += 2;
+		while ((cnt_op++, ast < n)) {
+			cout << "* ";
+			ast++;
+			cnt_op += 2;
+		}
+		cout << endl;
+		i += n;
+		cnt_op += 2;
+		cnt_op += pattern(n / 2, i);
+	}
+	return cnt_op;
+}

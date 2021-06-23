@@ -63,21 +63,33 @@ void testQ4()
 
 void testQ5()
 {
+	int a5_best[5] ={1,2,3,4,5};
+	int s5_best = 5;
+	int q5_best;
 
+	cout << "Best case\nInitial arr: ";
+	printIntArray(a5_best, s5_best);
+	q5_best = ssort(a5_best, s5_best, 0);
+	cout << "Output arr: ";
+	printIntArray(a5_best, s5_best);
+	cout << "Q5 Op Cnt: " << to_string(q5_best) << endl;
 }
 
 void testQ6()
 {
-
+	int n6 = 4;
+	int q6 = pattern(n6,0);
+	cout << "Q6(x=4): " << to_string(q6) << endl;
 }
 
 int main()
 {
-	testQ1();
-	testQ2();
-	testQ3();
-	testQ4();
-
+//	testQ1();
+//	testQ2();
+//	testQ3();
+//	testQ4();
+//	testQ5();
+	testQ6(); //4: 86; 8: 202
 
 
 
